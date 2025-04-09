@@ -1,0 +1,53 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+/* Si tienes otras reglas o fuentes, agrégalas a continuación */
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+/* Otras reglas personalizadas */
+/* Paleta de colores */
+:root {
+    --color-green:  #85BA26; 
+    --color-orange: #EF9B25;
+    --color-pink:   #DE276E;
+    --color-cyan:   #0094BC;
+  }
+  
+  /* Navbar personalizada con color verde */
+  .navbar-custom {
+    background-color: var(--color-green) !important;
+  }
+  .navbar-custom .navbar-brand,
+  .navbar-custom .nav-link {
+    color: #ffffff !important;
+  }
+  
+  /* Footer personalizado con fondo cyan y texto blanco */
+  .footer-custom {
+    background-color: var(--color-cyan) !important;
+    color: #ffffff !important;
+  }
+  
+  /* Botón personalizado en color naranja */
+  .btn-orange {
+    background-color: var(--color-orange);
+    border-color: var(--color-orange);
+    color: #fff;
+  }
+  .btn-orange:hover {
+    background-color: #e6881e; /* un tono más oscuro */
+    border-color: #e6881e;
+  }
+  
+  /* Texto en color rosa */
+  .text-pink {
+    color: var(--color-pink) !important;
+  }
+  
