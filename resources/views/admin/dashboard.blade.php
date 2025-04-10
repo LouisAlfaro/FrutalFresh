@@ -59,30 +59,6 @@
 
     </div>
 
-    <div class="card text-center">
-    <div class="card-body">
-        <h5 class="card-title">Contacto</h5>
-        <p class="card-text">Modifica la información de contacto (horario, teléfono, correo).</p>
-        <a href="{{ route('contacts.edit') }}" class="btn btn-primary">Editar Contacto</a>
-    </div>
-</div>  
-
-<div class="card text-center">
-            <div class="card-body">
-                <h5 class="card-title">Nuestra Empresa</h5>
-                <p class="card-text">Editar información de Nuestra Empresa.</p>
-                <a href="{{ route('empresa.edit') }}" class="btn btn-primary">Editar</a>
-            </div>
-</div>
-
-<div class="card text-center mb-4" style="border: none; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-    <div class="card-body">
-        <h5 class="card-title">Reservas</h5>
-        <p class="card-text">Ver y gestionar las reservas recibidas.</p>
-        <a href="{{ route('reservations.admin.index') }}" class="btn btn-primary">Ver Reservas</a>
-    </div>
-</div>
-
 <div class="row">
     <div class="col-md-6">
         <div class="card text-center mb-4">
@@ -104,7 +80,62 @@
     </div>
 </div>
 
-    <!-- Sección para estadísticas generales 
+<div class="row">
+    <!-- Tarjeta para Configurar "Hagamos Negocios" -->
+    <div class="col-md-6">
+        <div class="card text-center mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Configurar “Hagamos Negocios”</h5>
+                <p class="card-text">Editar la imagen y el título que se muestran en la sección.</p>
+                <a href="{{ route('businessopportunitysetting.edit') }}" class="btn btn-primary">Editar Configuración</a>
+            </div>
+        </div>
+    </div>
+    <!-- Tarjeta para Ver Postulaciones -->
+    <div class="col-md-6">
+        <div class="card text-center mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Postulaciones Comerciales</h5>
+                <p class="card-text">Ver y exportar las solicitudes recibidas.</p>
+                <a href="{{ route('businessopportunityapplications.index') }}" class="btn btn-primary">Ver Postulaciones</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card text-center">
+    <div class="card-body">
+        <h5 class="card-title">Contacto</h5>
+        <p class="card-text">Modifica la información de contacto (horario, teléfono, correo).</p>
+        <a href="{{ route('contacts.edit') }}" class="btn btn-primary">Editar Contacto</a>
+    </div>
+</div>  
+
+<div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">Nuestra Empresa</h5>
+                <p class="card-text">Editar información de Nuestra Empresa.</p>
+                <a href="{{ route('empresa.edit') }}" class="btn btn-primary">Editar</a>
+            </div>
+</div>
+
+<div class="card text-center mb-4">
+    <div class="card-body">
+        <h5 class="card-title">Redes Sociales</h5>
+        <p class="card-text">Editar enlaces de tus redes sociales oficiales.</p>
+        <a href="{{ route('sociallinks.edit') }}" class="btn btn-primary">Editar Redes Sociales</a>
+    </div>
+</div>
+
+
+<div class="card text-center mb-4" style="border: none; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+    <div class="card-body">
+        <h5 class="card-title">Reservas</h5>
+        <p class="card-text">Ver y gestionar las reservas recibidas.</p>
+        <a href="{{ route('reservations.admin.index') }}" class="btn btn-primary">Ver Reservas</a>
+    </div>
+</div>
+ <!-- Sección para estadísticas generales 
     <div class="row">
         <div class="col-12">
             <div class="card border-0 shadow-sm">

@@ -16,7 +16,7 @@ use App\Http\Controllers\Admin\WorkBenefitController;
 use App\Http\Controllers\Admin\WorkApplicationAdminController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\WorkOpportunityController;
-
+use App\Http\Controllers\BusinessOpportunityController;
 //
 // Rutas Públicas (Landing)
 //
@@ -28,6 +28,8 @@ Route::get('/videos', [LandingController::class, 'videos'])->name('landing.video
 Route::get('/nuestra-empresa', [LandingController::class, 'empresa'])->name('landing.empresa');
 Route::get('/reservar', [ReservationController::class, 'create'])->name('reservation.create');
 Route::post('/reservar', [ReservationController::class, 'store'])->name('reservation.store');
+Route::get('/hagamos-negocios', [BusinessOpportunityController::class, 'index'])->name('businessopportunity.index');
+Route::post('/hagamos-negocios', [BusinessOpportunityController::class, 'store'])->name('businessopportunity.store');
 Route::get('/trabaja-con-nosotros', [WorkOpportunityController::class, 'index'])
     ->name('workopportunity.index');
 Route::post('/trabaja-con-nosotros', [WorkOpportunityController::class, 'store'])
@@ -76,5 +78,23 @@ Route::middleware(['auth'])->group(function () {
             // Administración de Postulaciones
             Route::get('work-applications', [WorkApplicationAdminController::class, 'index'])->name('workapplications.index');
             Route::get('work-applications/export-csv', [WorkApplicationAdminController::class, 'exportCsv'])->name('workapplications.export');
+
+
+            Route::get('business-opportunity-setting', [\App\Http\Controllers\Admin\BusinessOpportunitySettingController::class, 'edit'])
+            ->name('businessopportunitysetting.edit');
+            Route::put('business-opportunity-setting', [\App\Http\Controllers\Admin\BusinessOpportunitySettingController::class, 'update'])
+            ->name('businessopportunitysetting.update');
+
+            Route::get('business-opportunity-applications', [\App\Http\Controllers\Admin\BusinessOpportunityApplicationAdminController::class, 'index'])
+            ->name('businessopportunityapplications.index');
+
+            Route::get('business-opportunity-applications/export-csv', [\App\Http\Controllers\Admin\BusinessOpportunityApplicationAdminController::class, 'exportCsv'])
+            ->name('businessopportunityapplications.export');
+            
+            Route::get('social-links', [\App\Http\Controllers\Admin\SocialLinkController::class, 'edit'])
+            ->name('sociallinks.edit');
+            Route::put('social-links', [\App\Http\Controllers\Admin\SocialLinkController::class, 'update'])
+            ->name('sociallinks.update');
+
         });
     });

@@ -92,6 +92,17 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('workapplications.index') }}">Postulaciones</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('businessopportunitysetting.edit') }}">Configurar “Hagamos Negocios”</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('businessopportunityapplications.index') }}">Postulaciones Comerciales</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('sociallinks.edit') }}" class="btn btn-primary">Editar Redes Sociales</a>
+                </li>
+
+
             </ul>
         </div>
         <!-- Área de Contenido -->
