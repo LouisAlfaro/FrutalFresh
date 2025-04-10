@@ -1,3 +1,7 @@
+@php
+    use Illuminate\Support\Str;
+@endphp
+
 @extends('layouts.admin')
 
 @section('content')
@@ -15,6 +19,7 @@
                 <th>ID</th>
                 <th>Título</th>
                 <th>Video</th>
+                <th>Red Social</th> <!-- Nueva columna -->
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -24,11 +29,36 @@
                 <td>{{ $video->id }}</td>
                 <td>{{ $video->titulo }}</td>
                 <td>
-                    <!-- Mostrar un pequeño reproductor del video -->
+                    <!-- Pequeño reproductor del video -->
                     <video width="150" controls>
                         <source src="{{ asset('storage/' . $video->video) }}" type="video/mp4">
                         Tu navegador no soporta el elemento de video.
                     </video>
+                </td>
+                <td>
+                    @if($video->link_red_social)
+                        @php
+                            $url = $video->link_red_social;
+                            $color = 'secondary';
+                            $label = 'Seguir';
+
+                            if (Str::contains($url, 'instagram.com')) {
+                                $color = 'danger';  // Rojo/rosa
+                                $label = 'Instagram';
+                            } elseif (Str::contains($url, 'facebook.com')) {
+                                $color = 'primary'; // Azul
+                                $label = 'Facebook';
+                            } elseif (Str::contains($url, 'tiktok.com')) {
+                                $color = 'dark';    // Oscuro
+                                $label = 'TikTok';
+                            }
+                        @endphp
+                        <a href="{{ $url }}" target="_blank" class="btn btn-sm btn-{{ $color }}">
+                            {{ $label }}
+                        </a>
+                    @else
+                        <span class="text-muted">No asignado</span>
+                    @endif
                 </td>
                 <td>
                     <a href="{{ route('videos.edit', $video->id) }}" class="btn btn-sm btn-warning">Editar</a>

@@ -5,15 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Video extends Model
+class Contact extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'titulo',
-        'video',
-        'thumbnail',
-        'descripcion',
-        'link_red_social', // Nuevo campo
+        'attention_hours',
+        'phone',
+        'email',
     ];
 }

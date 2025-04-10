@@ -21,15 +21,15 @@ class VideoController extends Controller
         return view('admin.videos.create');
     }
 
-    // Guardar un nuevo video subido
+    // Guardar un nuevo video
     public function store(Request $request)
     {
         $data = $request->validate([
-            'titulo'      => 'nullable|string|max:255',
-            // Validar que se suba un archivo de video (mp4, mov, avi, etc.)
-            'video'       => 'required|mimes:mp4,avi,mov,wmv|max:50000', // max size en kilobytes
-            'thumbnail'   => 'nullable|image|max:10240', // opcional
-            'descripcion' => 'nullable|string',
+            'titulo'         => 'nullable|string|max:255',
+            'video'          => 'required|mimes:mp4,avi,mov,wmv|max:50000',
+            'thumbnail'      => 'nullable|image|max:10240',
+            'descripcion'    => 'nullable|string',
+            'link_red_social'=> 'nullable|url', // Validación del link
         ]);
 
         if ($request->hasFile('video')) {
@@ -67,20 +67,21 @@ class VideoController extends Controller
         $video = Video::findOrFail($id);
 
         $data = $request->validate([
-            'titulo'      => 'nullable|string|max:255',
-            'video'       => 'nullable|mimes:mp4,avi,mov,wmv|max:50000',
-            'thumbnail'   => 'nullable|image|max:10240',
-            'descripcion' => 'nullable|string',
+            'titulo'         => 'nullable|string|max:255',
+            'video'          => 'nullable|mimes:mp4,avi,mov,wmv|max:50000',
+            'thumbnail'      => 'nullable|image|max:10240',
+            'descripcion'    => 'nullable|string',
+            'link_red_social'=> 'nullable|url', // Nuevo campo
         ]);
 
         if ($request->hasFile('video')) {
-            // Opcional: Puedes eliminar el video anterior aquí
+            // Opcional: Eliminar el video anterior
             $pathVideo = $request->file('video')->store('videos', 'public');
             $data['video'] = $pathVideo;
         }
 
         if ($request->hasFile('thumbnail')) {
-            // Opcional: Puedes eliminar la miniatura anterior
+            // Opcional: Eliminar la miniatura anterior
             $pathThumb = $request->file('thumbnail')->store('videos/thumbnails', 'public');
             $data['thumbnail'] = $pathThumb;
         }

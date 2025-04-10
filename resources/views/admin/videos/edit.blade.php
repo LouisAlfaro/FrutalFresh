@@ -32,6 +32,10 @@
             <label for="descripcion" class="form-label">Descripción (opcional)</label>
             <textarea class="form-control" id="descripcion" name="descripcion">{{ $video->descripcion }}</textarea>
         </div>
+        <div class="mb-3">
+            <label for="link_red_social" class="form-label">Enlace a red social (opcional)</label>
+            <input type="url" class="form-control" id="link_red_social" name="link_red_social" value="{{ old('link_red_social', $video->link_red_social) }}">
+        </div>
         <button type="submit" class="btn btn-primary">Actualizar Video</button>
     </form>
 </div>

@@ -8,14 +8,13 @@
     <!-- Vite: Compilación de CSS y JS -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
-        /* Definir la paleta de colores */
+        /* Paleta de Colores */
         :root {
             --color-green:  #89D631;
             --color-orange: #EF9B25;
             --color-pink:   #DE276E;
             --color-cyan:   #0094BC;
         }
-        
         body {
             background-color: #f8f9fa;
         }
@@ -37,7 +36,7 @@
         .content {
             padding: 20px;
         }
-        /* Navbar personalizado usando el color cian */
+        /* Navbar personalizado (usando color cian) */
         .navbar-custom {
             background-color: var(--color-cyan) !important;
         }
@@ -51,15 +50,15 @@
     <div class="d-flex">
         <!-- Sidebar -->
         <div class="sidebar p-3">
-            <!-- Logo en la parte superior -->
+            <!-- Logo y branding -->
             <div class="text-center mb-3">
                 <a href="{{ url('/admin') }}">
                     <img src="{{ asset('asset/img/logo.png') }}" alt="Logo Frutal Fresh" class="img-fluid" style="max-height: 80px;">
                 </a>
             </div>
-            <!-- Enlace de "Admin Dashboard" o el nombre de la marca -->
             <div class="text-center mb-3">
-                <a>Frutal Fresh</a>
+                <!-- Se puede usar <span> si no se pretende que sea clicable -->
+                <span class="fw-bold">Frutal Fresh</span>
             </div>
             <hr class="text-white">
             <ul class="nav flex-column">
@@ -78,7 +77,21 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/admin/sliders') }}">Sliders</a>
                 </li>
-                <!-- Agrega más enlaces según necesites -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('contacts.edit') }}">Contacto</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('empresa.edit') }}">Nuestra Empresa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('reservations.admin.index') }}">Reservas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('work-benefits.index') }}">Beneficios (Trabajo)</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('workapplications.index') }}">Postulaciones</a>
+                </li>
             </ul>
         </div>
         <!-- Área de Contenido -->
@@ -87,7 +100,8 @@
             <nav class="navbar navbar-expand-lg navbar-custom shadow-sm">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="{{ url('/') }}">Frutal Juguería</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
@@ -102,7 +116,7 @@
                     </div>
                 </div>
             </nav>
-            <!-- Área donde se inyecta el contenido específico -->
+            <!-- Contenido específico -->
             <div class="container mt-4">
                 @yield('content')
             </div>

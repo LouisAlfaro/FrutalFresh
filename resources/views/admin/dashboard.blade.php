@@ -25,6 +25,7 @@
                 </div>
             </div>
         </div>
+
         <!-- Tarjeta para Locales -->
         <div class="col-md-4 mb-4">
             <div class="card border-0 shadow-sm">
@@ -57,6 +58,51 @@
         </div>
 
     </div>
+
+    <div class="card text-center">
+    <div class="card-body">
+        <h5 class="card-title">Contacto</h5>
+        <p class="card-text">Modifica la información de contacto (horario, teléfono, correo).</p>
+        <a href="{{ route('contacts.edit') }}" class="btn btn-primary">Editar Contacto</a>
+    </div>
+</div>  
+
+<div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">Nuestra Empresa</h5>
+                <p class="card-text">Editar información de Nuestra Empresa.</p>
+                <a href="{{ route('empresa.edit') }}" class="btn btn-primary">Editar</a>
+            </div>
+</div>
+
+<div class="card text-center mb-4" style="border: none; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+    <div class="card-body">
+        <h5 class="card-title">Reservas</h5>
+        <p class="card-text">Ver y gestionar las reservas recibidas.</p>
+        <a href="{{ route('reservations.admin.index') }}" class="btn btn-primary">Ver Reservas</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card text-center mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Beneficios - Trabaja con nosotros</h5>
+                <p class="card-text">Gestiona los beneficios mostrados en la sección.</p>
+                <a href="{{ route('work-benefits.index') }}" class="btn btn-primary">Editar Beneficios</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card text-center mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Postulaciones</h5>
+                <p class="card-text">Ver y exportar las postulaciones recibidas.</p>
+                <a href="{{ route('workapplications.index') }}" class="btn btn-primary">Ver Postulaciones</a>
+            </div>
+        </div>
+    </div>
+</div>
 
     <!-- Sección para estadísticas generales 
     <div class="row">

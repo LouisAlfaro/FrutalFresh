@@ -10,6 +10,7 @@ use App\Models\Carta;
 use App\Models\Local;
 use App\Models\Video;
 use App\Models\Slider;
+use App\Models\Empresa;
 
 class LandingController extends Controller
 {
@@ -21,8 +22,9 @@ class LandingController extends Controller
         $locales = Local::all();
         $sliders = Slider::orderBy('orden')->get();
         $videos = \App\Models\Video::latest()->get();
+        $contact = \App\Models\Contact::find(1);
 
-        return view('landing.index', compact('promociones', 'carta', 'locales', 'videos','sliders'));
+        return view('landing.index', compact('promociones', 'carta', 'locales', 'videos','sliders','contact'));
     }
 
     public function promociones()
@@ -32,14 +34,14 @@ class LandingController extends Controller
     }
 
     public function carta()
-{
-    $cartaItems = Carta::with('local')->get();
-    // Agrupamos por el nombre del local; si no hay local, usamos "Sin Local"
-    $carta = $cartaItems->groupBy(function($item) {
-        return $item->local ? $item->local->nombre : 'Sin Local';
-    });
-    return view('landing.carta', compact('carta'));
-}
+    {
+        $cartaItems = Carta::with('local')->get();
+        // Agrupamos por el nombre del local; si no hay local, usamos "Sin Local"
+        $carta = $cartaItems->groupBy(function($item) {
+            return $item->local ? $item->local->nombre : 'Sin Local';
+        });
+        return view('landing.carta', compact('carta'));
+    }
 
 
     public function locales()
@@ -47,4 +49,11 @@ class LandingController extends Controller
         $locales = Local::all();
         return view('landing.locales', compact('locales'));
     }
+
+    public function empresa()
+    {
+        $empresa = \App\Models\Empresa::findOrFail(1);
+        return view('landing.empresa', compact('empresa'));
+    }
+
 }

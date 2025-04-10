@@ -22,6 +22,10 @@
             <label for="descripcion" class="form-label">Descripción (opcional)</label>
             <textarea class="form-control" id="descripcion" name="descripcion"></textarea>
         </div>
+        <div class="mb-3">
+            <label for="link_red_social" class="form-label">Enlace a red social (opcional)</label>
+            <input type="url" class="form-control" id="link_red_social" name="link_red_social" placeholder="https://www.instagram.com/tuPerfil">
+        </div>
         <button type="submit" class="btn btn-primary">Guardar Video</button>
     </form>
 </div>
