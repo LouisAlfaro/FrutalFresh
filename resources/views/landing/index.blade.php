@@ -6,6 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Frutal Juguería</title>
+    <link rel="icon" href="{{ asset('asset/img/faviconFrutal.png') }}" type="image/png">
     <!-- Bootstrap CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Vite (opcional para tu proyecto) -->
@@ -192,13 +193,41 @@
                     </ul>
                 </div>
                 <!-- Botones Acción (desktop) -->
-                <div class="d-none d-lg-flex align-items-center">
-                    <a href="#" class="btn btn-outline-light me-2 fw-bold">Pedir Online</a>
-                    <a href="{{ route('workopportunity.index') }}" class="btn fw-bold"
-                       style="background-color: var(--color-pink); color: var(--color-white);">
-                       Oportunidades
+                <!-- Botones Acción (desktop) -->
+@php
+    use App\Models\DeliveryLink;
+    $deliveryLinks = \App\Models\DeliveryLink::where('active', true)->get();
+@endphp
+
+<div class="d-none d-lg-flex align-items-center">
+    <!-- Dropdown de Pedir Online -->
+    <div class="dropdown me-2">
+        <button class="btn btn-outline-light fw-bold dropdown-toggle" type="button" id="pedirOnlineDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            Pedir Online
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="pedirOnlineDropdown">
+            @forelse($deliveryLinks as $link)
+                <li>
+                    <a class="dropdown-item d-flex align-items-center" href="{{ $link->url }}" target="_blank">
+                        @if($link->image)
+                            <img src="{{ asset('storage/' . $link->image) }}" alt="{{ $link->platform }}" style="height: 24px;" class="me-2">
+                        @endif
+                        {{ $link->platform }}
                     </a>
-                </div>
+                </li>
+            @empty
+                <li><span class="dropdown-item text-muted">No disponible</span></li>
+            @endforelse
+        </ul>
+    </div>
+
+    <!-- Botón de Oportunidades -->
+    <a href="{{ route('workopportunity.index') }}" class="btn fw-bold"
+       style="background-color: var(--color-pink); color: var(--color-white);">
+       Oportunidades
+    </a>
+</div>
+
             </div>
         </nav>
     </header>

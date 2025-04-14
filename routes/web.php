@@ -96,5 +96,7 @@ Route::middleware(['auth'])->group(function () {
             Route::put('social-links', [\App\Http\Controllers\Admin\SocialLinkController::class, 'update'])
             ->name('sociallinks.update');
 
+            Route::resource('delivery-links', \App\Http\Controllers\Admin\DeliveryLinkController::class);
+
         });
     });

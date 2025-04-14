@@ -135,6 +135,18 @@
         <a href="{{ route('reservations.admin.index') }}" class="btn btn-primary">Ver Reservas</a>
     </div>
 </div>
+
+<!-- Tarjeta para Delivery / Pedidos Online -->
+<div class="col-md-4 mb-4">
+    <div class="card border-0 shadow-sm">
+        <div class="card-body text-center">
+            <h5 class="card-title">Pedidos Online</h5>
+            <p class="card-text">Gestiona las plataformas de pedidos como PedidosYa o Rappi.</p>
+            <a href="{{ route('delivery-links.index') }}" class="btn btn-primary">Ver Plataformas</a>
+        </div>
+    </div>
+</div>
+
  <!-- Sección para estadísticas generales 
     <div class="row">
         <div class="col-12">

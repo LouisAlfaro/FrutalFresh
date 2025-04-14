@@ -41,6 +41,8 @@
     border-color: var(--color-orange);
     color: #fff;
   }
+
+  
   .btn-orange:hover {
     background-color: #e6881e; /* un tono más oscuro */
     border-color: #e6881e;

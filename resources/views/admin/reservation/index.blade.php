@@ -21,6 +21,7 @@
                 <th>Motivo</th>
                 <th>Mensaje</th>
                 <th>Enviado</th>
+    
             </tr>
         </thead>
         <tbody>

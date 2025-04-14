@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin - Frutal Juguería</title>
+    <link rel="icon" href="{{ asset('asset/img/faviconFrutal.png') }}" type="image/png">
+
     <!-- Bootstrap CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Vite: Compilación de CSS y JS -->
@@ -21,7 +23,7 @@
         /* Sidebar personalizado */
         .sidebar {
             min-height: 100vh;
-            background-color: var(--color-green) !important;
+            background-color: var(--color-orange) !important;
             color: #fff;
             padding: 1rem;
         }
@@ -101,8 +103,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('sociallinks.edit') }}" class="btn btn-primary">Editar Redes Sociales</a>
                 </li>
-
-
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('delivery-links.index') }}" class="btn btn-primary">Editar DeliveryLinks</a>
+                </li>
             </ul>
         </div>
         <!-- Área de Contenido -->

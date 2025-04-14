@@ -6,6 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Frutal Juguería</title>
+    <link rel="icon" href="{{ asset('asset/img/faviconFrutal.png') }}" type="image/png">
     <!-- Bootstrap CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     @vite(['resources/css/app.css'])
